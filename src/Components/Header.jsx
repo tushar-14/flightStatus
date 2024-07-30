@@ -25,7 +25,7 @@ function Header() {
                 Notification ({store.note})
               </span>
             </Link>
-            <span className=" text-light fs-4">Admin Login</span>
+            {/* <span className=" text-light fs-4">Admin Login</span> */}
           </div>
         </div>
       </nav>

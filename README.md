@@ -76,6 +76,7 @@ Ensure you have the following installed:
 
 Flight data can be posted on the database via [http://localhost:8090/api/add]
 Sample JSON :
+```yaml
 {
     "flightId": "6E 2342",
     "airline": "Indigo",
@@ -96,6 +97,7 @@ Sample JSON :
         }
     ]
 }
+```
 
 ## Contributing
 

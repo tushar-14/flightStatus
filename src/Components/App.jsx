@@ -9,24 +9,20 @@ import { getData } from "../Services/Flight-service";
 import { Store } from "../store/store";
 import { onMessage } from "firebase/messaging";
 import { generateToken, messaging } from "../firebase";
-import { toast, ToastContainer } from "react-toastify";
+import NotificationTab from "./NotificationTab";
 
 function App() {
-  useEffect(() => {
-    generateToken();
-    onMessage(messaging, (payload) => {
-      console.log(payload);
-      // toast.info("Testing in App notification"),
-      //   {
-      //     position: toast.POSITION.TOP_RIGHT,
-      //   };
-    });
-  }, []);
-
   const flight = useRef();
   const [flag, setFlag] = useState(false);
   const [flightData, setFlightData] = useState();
   const [note, setNote] = useState(0);
+
+  useEffect(() => {
+    generateToken();
+    onMessage(messaging, (payload) => {
+      console.log(payload);
+    });
+  }, [note]);
 
   function fetch(event) {
     event.preventDefault();
@@ -58,9 +54,7 @@ function App() {
             element={
               <>
                 <Header></Header>
-                <div className="w-25">
-                  <ToastContainer></ToastContainer>
-                </div>
+                <div className="w-25"></div>
 
                 <Search ref={flight}></Search>
                 <Content></Content>
@@ -69,7 +63,7 @@ function App() {
           ></Route>
           <Route
             path="notification"
-            element={<Notification></Notification>}
+            element={<NotificationTab></NotificationTab>}
           ></Route>
         </Routes>
       </BrowserRouter>

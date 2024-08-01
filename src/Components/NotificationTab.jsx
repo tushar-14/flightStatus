@@ -3,7 +3,7 @@ import Header from "./Header";
 import { Store } from "../store/store";
 import { convertDate } from "../Services/Helper";
 
-function Notification() {
+function NotificationTab() {
   const store = useContext(Store);
 
   function modify(text) {
@@ -38,4 +38,4 @@ function Notification() {
   );
 }
 
-export default Notification;
+export default NotificationTab;
